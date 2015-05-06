@@ -5,6 +5,12 @@ class ProductsController < ApplicationController
     else
       Product.all
     end
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
+
   end
 
   def show
@@ -36,12 +42,13 @@ class ProductsController < ApplicationController
   def update
   end
 
-
   def destroy
   	@product = Product.find(params[:id])
   	@product.destroy
   	redirect_to products_path
   end
+
+
 
 private
 	def product_params

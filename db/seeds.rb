@@ -7,7 +7,9 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 100.times do
-	Product.create(
+	Product.create!(
 		name: Faker::Company.catch_phrase,
-		description: "#{Faker::Company.bs}" from "#{Faker::Company}"
+		description: Faker::Company.bs,
+		price_in_cents: rand(25..2500)
 	)
+end
