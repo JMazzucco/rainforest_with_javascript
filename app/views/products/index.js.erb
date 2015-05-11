@@ -1,1 +1,10 @@
-$('#products').html('<%= j(render @products) %>');
+<% if params[:search] && params[:page].nil? %>
+  $('#products').html("<%= j(render @products) %>");
+  console.log("replace")
+<% else %>
+  $('#products').append('<%= j render(@products) %>');
+    console.log("append")
+
+<% end %>
+
+$('.pagination').replaceWith('<%= j paginate(@products) %>');
